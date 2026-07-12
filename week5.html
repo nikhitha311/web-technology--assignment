@@ -1,0 +1,53 @@
+<html>
+    <body align="center" bgcolor="orange">
+        <h2> JOB REGISTRATION FORM </h2>
+        <form>
+            <table align="center">
+            <tr><td>Name:</td><td><input type="text"  id="one" placeholder="Enter your Name "></td></tr>
+            <tr><td>Email:</td><td><input type="email" id="two" placeholder="Enter your email"></td></tr>
+            <tr><td>Contact Number:</td><td><input type="number" id="three" placeholder="Enter your contact number"></td></tr>
+            <tr><td></td><td><input type="submit" value="Submit" onclick="return validate()"></td></tr>
+            </table>
+        </form>
+        <script>
+            function validate(){
+            var un=document.getElementById("one")
+            var uname=un.value
+            var mail=document.getElementById("two")
+            var email=mail.value
+            var mn=document.getElementById("three")
+            var mobile=mn.value
+            var unre=/^[a-zA-Z]+[0-9a-zA-Z._]*$/;
+            var ere=/^[a-zA-Z]+([\._]?\w+)*@\w+([\._]?\w+)*(\.\w{2,3})+$/;
+            var mre=/^[6-9][0-9]{9}$/;
+            if(unre.test(uname)){
+                if(ere.test(email)){
+                    if(mre.test(mobile)){
+                        alert("Registered Successfully");
+                        return true;
+                    }
+                    else{
+                        return error(mn);
+                    }
+                }
+                else{
+                        return error(mail);
+                    }
+                }
+                    else{
+                        return error(un);
+                    }
+        }
+        function error(ele){
+            alert("Invalid");
+            ele.style.border="3 px solid red";
+            ele.placeholder="Invalid";
+            ele.value="";
+            ele.focus();
+            return false;
+        }
+        </script>
+        <h4>M.Nikhitha</h4>
+        <h3>24881A12A1</h3>
+    </body>
+</html>
