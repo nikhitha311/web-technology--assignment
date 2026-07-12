@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <style>
+            input[type=text] {
+                width: 100%;
+                padding: 12px 20px;
+                margin: 8px 0;
+                box-sizing: border-box;
+                color :black;
+                background-color: lightcyan;
+                border : solid 2px
+            }
+        </style>
+         <style>
+         input[type=number] {
+                width: 100%;
+                padding: 12px 20px;
+                margin: 8px 0;
+                box-sizing: border-box;       
+                color :bisque;
+                background-color:darkkhaki;
+                border : solid 2px
+            }
+        </style>
+        <style>
+         input[type=button] {
+                width: 100%;
+                padding: 12px 20px;
+                margin: 8px 0;
+                box-sizing: border-box;
+                color :bisque;
+                background-color:forestgreen;
+                margin-top :20px;
+                height :40px;
+                border : solid 2px
+            }
+        </style>
+    </head>
+    <body>
+        <form>
+            Name<input type = "text" placeholder = "enter your name">
+            Occupation<input type = "text" placeholder = "enter your occupation">
+            Amount<input type = "number" placeholder = "enter the amount" id = "amount">
+            Interest <input type = "number" placeholder = "enter the interest rate" id = "interest">
+            Tenure<input type = "number" placeholder = "enter the no of years" id = "tenure">>
+            <input type = "button" value = "Calculate EMI" onclick = "calculateEMI()">
+           <h3 align = "right"
+        </form>
+          <p id = "result"></p>
+        <script>
+            function calculateEMI(){
+            var A = document.getElementById("amount").value;
+            var I = document.getElementById("interest").value;
+            var T = document.getElementById("tenure").value;
+            var R = interest/(12*100);
+            var T = T*12;
+            var emi = (A*R*Math.pow((1+R),T))/(Math.pow((1+R),T)-1);
+            document.getElementById("result").innerHTML = "<h2> your EMI is:</h2> " + emi.toFixed(2);
+            }
+        </script>
+    </body>
+</html>
